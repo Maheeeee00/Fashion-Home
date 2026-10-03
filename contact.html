@@ -103,8 +103,15 @@
           </div>
         </div>
         <div class="field"><textarea id="message" rows="5" required placeholder=" "></textarea><label for="message">Your Message</label></div>
+        <label class="file-field" for="attachment">
+          <span class="file-icon"><svg viewBox="0 0 24 24"><path d="M16.5 6.5l-7.8 7.8a2 2 0 002.8 2.8l7.8-7.8a4 4 0 00-5.6-5.6L5.8 11.6a6 6 0 008.5 8.5l6.4-6.4" /></svg></span>
+          <span class="file-text"><strong id="fileName">Attach a design or photo</strong><small>Optional · JPG, PNG, WEBP or PDF · max 5 MB</small></span>
+          <input type="file" id="attachment" accept="image/jpeg,image/png,image/webp,application/pdf" />
+        </label>
+        <input type="text" id="website" name="website" class="hp-field" tabindex="-1" autocomplete="off" aria-hidden="true" />
         <button type="submit" class="btn btn-primary btn-block">Send Message</button>
         <p class="form-success" id="formSuccess">Thank you! Your message has been received. We'll be in touch soon.</p>
+        <p class="form-error" id="formError"></p>
       </form>
     </div>
   </section>
@@ -130,6 +137,7 @@
   </footer>
 
   <a href="#top" class="to-top" id="toTop" aria-label="Back to top">↑</a>
+  <script src="js/config.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>

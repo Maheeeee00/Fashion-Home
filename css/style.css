@@ -545,3 +545,27 @@ body.menu-open { overflow: hidden; }
 .phone-link { display: block; color: var(--red); font-weight: 600; font-size: 1.05rem; }
 .phone-link:hover { text-decoration: underline; }
 .hero-stats strong::after { content: "+"; }
+
+/* ===== Google Sheets / Drive content ===== */
+.swatch.has-photo { background: #ece7e1; }
+.swatch.has-photo::before { inset: 0; background: var(--photo) center / cover no-repeat; }
+.product:hover .swatch.has-photo::before { transform: scale(1.08); }
+
+/* Attachment field */
+.file-field { display: flex; align-items: center; gap: 14px; padding: 14px 16px; margin: -4px 0 26px; border: 1px dashed #d6d1ca; border-radius: 4px; cursor: pointer; transition: border-color .3s, background .3s; position: relative; }
+.file-field:hover, .file-field:focus-within { border-color: var(--red); background: var(--cream); }
+.file-field input[type="file"] { position: absolute; width: 1px; height: 1px; opacity: 0; pointer-events: none; }
+.file-icon { flex: none; width: 40px; height: 40px; border-radius: 50%; background: var(--bg); display: grid; place-content: center; transition: background .3s; }
+.file-icon svg { width: 18px; height: 18px; fill: none; stroke: var(--red); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.file-text { display: flex; flex-direction: column; min-width: 0; }
+.file-text strong { color: var(--ink); font-weight: 500; font-size: .95rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.file-text small { color: #999; font-size: .78rem; }
+.file-field.has-file { border-style: solid; border-color: var(--red); }
+.file-field.has-file .file-icon { background: var(--red); }
+.file-field.has-file .file-icon svg { stroke: #fff; }
+
+/* Spam trap (hidden from people) */
+.hp-field { position: absolute !important; left: -9999px !important; width: 1px; height: 1px; opacity: 0; }
+
+.form-error { margin-top: 14px; color: var(--red); font-weight: 500; max-height: 0; opacity: 0; overflow: hidden; transition: all .5s var(--ease); }
+.form-error.show { max-height: 120px; opacity: 1; }
