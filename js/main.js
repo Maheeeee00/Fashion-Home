@@ -41,18 +41,38 @@
   const burger = $('#burger');
   const nav = $('#nav');
   if (burger && nav) {
-    burger.addEventListener('click', () => {
-      burger.classList.toggle('active');
-      nav.classList.toggle('open');
-    });
-    // On mobile, first tap on "Home Textile"/"Apparels" opens the submenu
+    const backdrop = document.createElement('div');
+    backdrop.className = 'nav-backdrop';
+    document.body.appendChild(backdrop);
+
+    const setMenu = open => {
+      burger.classList.toggle('active', open);
+      nav.classList.toggle('open', open);
+      body.classList.toggle('menu-open', open);
+      burger.setAttribute('aria-expanded', open);
+      burger.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    };
+    burger.addEventListener('click', () => setMenu(!nav.classList.contains('open')));
+    backdrop.addEventListener('click', () => setMenu(false));
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') setMenu(false); });
+    window.addEventListener('resize', () => { if (window.innerWidth > 900) setMenu(false); });
+
+    // On mobile, tapping "Home Textile"/"Apparels" opens/closes its submenu
+    // (the submenu has its own "View all" link)
     $$('.has-dropdown > .nav-link').forEach(link => {
       link.addEventListener('click', e => {
-        if (window.innerWidth <= 900 && !link.parentElement.classList.contains('open')) {
+        if (window.innerWidth <= 900) {
           e.preventDefault();
-          link.parentElement.classList.add('open');
+          const li = link.parentElement;
+          const wasOpen = li.classList.contains('open');
+          $$('.has-dropdown.open').forEach(d => d.classList.remove('open'));
+          if (!wasOpen) li.classList.add('open');
         }
       });
+    });
+    // Close the menu after choosing a page
+    $$('.nav a').forEach(a => {
+      if (!a.matches('.has-dropdown > .nav-link')) a.addEventListener('click', () => setMenu(false));
     });
   }
 
