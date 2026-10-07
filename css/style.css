@@ -708,3 +708,18 @@ body.menu-open { overflow: hidden; }
 .logo-bubble.wide img { max-height: 46%; }
 @media (max-width: 600px) { .logo-bubble { padding: 11px; } }
 .ceo-features { margin-top: 30px; padding-top: 26px; border-top: 1px solid var(--line); }
+
+/* ===== Text product cards (no pattern image) ===== */
+.product-text { position: relative; border-top: 3px solid var(--red); }
+.product-text .product-body { padding: 28px 28px 30px; }
+.product-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; }
+.product-num { font-family: var(--serif); font-size: 2.2rem; line-height: 1; color: var(--line); transition: color .4s; }
+.product:hover .product-num { color: var(--red); }
+.product-badge { background: var(--red); color: #fff; font-size: .7rem; letter-spacing: .12em; text-transform: uppercase; padding: 5px 11px; font-weight: 600; animation: tagPulse 2.4s ease-in-out infinite; }
+.product .swatch.has-photo + .product-body .product-top { margin-bottom: 8px; }
+.product-text::before { content: ""; position: absolute; inset: 0; background: linear-gradient(160deg, rgba(163,36,59,.06), transparent 55%); opacity: 0; transition: opacity .5s; pointer-events: none; }
+.product-text:hover::before { opacity: 1; }
+.map-link { display: inline-flex !important; align-items: center; gap: 6px; margin-top: 10px; font-weight: 600; color: var(--red); font-size: .9rem; }
+.map-link svg { width: 16px; height: 16px; fill: currentColor; }
+.map-link:hover { text-decoration: underline; }
+.office .map-link { display: flex !important; }

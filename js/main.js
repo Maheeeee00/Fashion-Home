@@ -148,7 +148,8 @@
   function applySheetData(data) {
     // Category photos → cards, page banner and intro image
     (data.categories || []).forEach(c => {
-      if (!c.image) return;
+      // Old default stock photos in the Sheet must not replace the website's own photos
+      if (!c.image || /images\.unsplash\.com/.test(c.image)) return;
       const img = cssUrl(c.image);
       $$(`a[href="${c.key}.html"].card, a[href="${c.key}.html"].a-card`).forEach(a => a.style.setProperty('--img', img));
       if (body.dataset.page === c.key) {
@@ -160,13 +161,13 @@
     const grid = $('.products[data-category]');
     const list = grid && (data.products || {})[grid.dataset.category];
     if (!grid || !list || !list.length) return;
-    const patterns = ['sw-plain', 'sw-stripe', 'sw-weave', 'sw-check', 'sw-dot', 'sw-herring'];
-    const palette = $$('.products .swatch').map(s => s.getAttribute('style'));
     grid.innerHTML = list.map((p, i) => {
-      const photo = p.image ? ` has-photo" style="--photo:${esc(cssUrl(p.image))}` : `" style="${esc(palette[i % palette.length] || '')}`;
-      return `<article class="product reveal">
-          <div class="swatch ${patterns[i % patterns.length]}${photo}">${p.badge ? `<span class="swatch-tag">${esc(p.badge)}</span>` : ''}</div>
+      const badge = p.badge ? `<span class="product-badge">${esc(p.badge)}</span>` : '';
+      const photo = p.image ? `<div class="swatch has-photo" style="--photo:${esc(cssUrl(p.image))}"></div>` : '';
+      return `<article class="product ${p.image ? '' : 'product-text '}reveal">
+          ${photo}
           <div class="product-body">
+            <div class="product-top"><span class="product-num">${String(i + 1).padStart(2, '0')}</span>${badge}</div>
             <h4>${esc(p.name)}</h4>
             ${p.description ? `<p>${esc(p.description)}</p>` : ''}
             ${(p.tags || []).length ? `<div class="tags">${p.tags.map(t => `<span>${esc(t)}</span>`).join('')}</div>` : ''}

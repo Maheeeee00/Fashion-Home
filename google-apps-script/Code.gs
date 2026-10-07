@@ -377,16 +377,16 @@ function ui_(title, msg) {
 const SEED_CATEGORIES = [
   ["sheets", "Sheets", "Home Textile", "", "Yes"],
   ["comforters", "Comforters", "Home Textile", "", "Yes"],
-  ["duvets", "Duvets", "Home Textile", "https://images.unsplash.com/photo-1540518614846-7eded433c457?w=1200&q=80", "Yes"],
-  ["blankets", "Blankets", "Home Textile", "https://images.unsplash.com/photo-1580301762395-21ce84d00bc6?w=1200&q=80", "Yes"],
-  ["towels", "Towels", "Home Textile", "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=1200&q=80", "Yes"],
-  ["kitchen", "Kitchen", "Home Textile", "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1200&q=80", "Yes"],
-  ["curtains", "Curtains", "Home Textile", "https://images.unsplash.com/photo-1629302477738-32f97d5c86e4?w=1200&q=80", "Yes"],
-  ["men", "Men", "Apparels", "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=1200&q=80", "Yes"],
+  ["duvets", "Duvets", "Home Textile", "", "Yes"],
+  ["blankets", "Blankets", "Home Textile", "", "Yes"],
+  ["towels", "Towels", "Home Textile", "", "Yes"],
+  ["kitchen", "Kitchen", "Home Textile", "", "Yes"],
+  ["curtains", "Curtains", "Home Textile", "", "Yes"],
+  ["men", "Men", "Apparels", "", "Yes"],
   ["women", "Women", "Apparels", "https://images.unsplash.com/photo-1483985988355-763728e1935b?w=1200&q=80", "Yes"],
   ["kids", "Kids", "Apparels", "https://images.unsplash.com/photo-1503919545889-aef636e10ad4?w=1200&q=80", "Yes"],
   ["formal", "Formal", "Apparels", "https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=1200&q=80", "Yes"],
-  ["sportswear", "Sportswear", "Apparels", "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=1200&q=80", "Yes"]
+  ["sportswear", "Sportswear", "Apparels", "", "Yes"]
 ];
 
 const SEED_PRODUCTS = [
