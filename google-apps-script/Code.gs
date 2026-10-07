@@ -246,7 +246,7 @@ function doPost(e) {
     try {
       const ss = ss_();
       const sh = ss.getSheetByName(SH.ENQUIRIES) || setupSheet_(ss, SH.ENQUIRIES, HEAD.Enquiries, []);
-      sh.appendRow([new Date(), safe_(name), safe_(email), safe_(phone), safe_(interest), safe_(message), attachment, safe_(page), 'New']);
+      sh.appendRow([new Date(), safe_(name), safe_(email), phone ? "'" + phone : '', safe_(interest), safe_(message), attachment, safe_(page), 'New']);
     } finally {
       lock.releaseLock();
     }

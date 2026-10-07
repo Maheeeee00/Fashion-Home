@@ -8,5 +8,5 @@
 //  built-in products, and the contact form runs in demo mode.
 // =============================================================
 window.FH_CONFIG = {
-  SCRIPT_URL: 'https://script.google.com/macros/s/AKfycbxiqHPBZ5RkJJYy4fXsLvOrKtatUxZu9iB106UDCgOitePTQ7_DvcGpWp1rc6kW3fYtAQ/exec'
+  SCRIPT_URL: ''
 };
