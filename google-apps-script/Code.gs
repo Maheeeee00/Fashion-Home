@@ -375,8 +375,8 @@ function ui_(title, msg) {
    Only used by setup() when the sheets are empty.
    ================================================================ */
 const SEED_CATEGORIES = [
-  ["sheets", "Sheets", "Home Textile", "https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?w=1200&q=80", "Yes"],
-  ["comforters", "Comforters", "Home Textile", "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=1200&q=80", "Yes"],
+  ["sheets", "Sheets", "Home Textile", "", "Yes"],
+  ["comforters", "Comforters", "Home Textile", "", "Yes"],
   ["duvets", "Duvets", "Home Textile", "https://images.unsplash.com/photo-1540518614846-7eded433c457?w=1200&q=80", "Yes"],
   ["blankets", "Blankets", "Home Textile", "https://images.unsplash.com/photo-1580301762395-21ce84d00bc6?w=1200&q=80", "Yes"],
   ["towels", "Towels", "Home Textile", "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=1200&q=80", "Yes"],
