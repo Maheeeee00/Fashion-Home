@@ -707,3 +707,4 @@ body.menu-open { overflow: hidden; }
 .logo-bubble { padding: 15px; }
 .logo-bubble.wide img { max-height: 46%; }
 @media (max-width: 600px) { .logo-bubble { padding: 11px; } }
+.ceo-features { margin-top: 30px; padding-top: 26px; border-top: 1px solid var(--line); }
