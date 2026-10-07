@@ -653,3 +653,57 @@ body.menu-open { overflow: hidden; }
   .ceo-tag strong { font-size: .95rem; }
   .trust h3 { font-size: 1.5rem; }
 }
+
+/* ===== Moving logo sliders (certifications + retail partners) ===== */
+.partners-section { background: linear-gradient(180deg, var(--cream), #f4eeec); overflow: hidden; }
+.logo-slider { display: grid; grid-template-columns: 300px 1fr; align-items: center; gap: 26px; margin-bottom: 30px; }
+.logo-slider:last-child { margin-bottom: 0; }
+.logo-card { position: relative; overflow: hidden; border-radius: 18px; padding: 30px 28px; color: #fff; text-align: center;
+  background: linear-gradient(120deg, var(--red-dark) 0%, var(--red) 45%, #d98a98 100%); background-size: 200% 200%;
+  box-shadow: 0 22px 45px -20px rgba(125,26,44,.65); animation: cardShift 8s ease-in-out infinite alternate; }
+.logo-slider.alt .logo-card { background: linear-gradient(120deg, #1d1a1a 0%, #3a2a2e 50%, #8a5a64 100%); background-size: 200% 200%; box-shadow: 0 22px 45px -20px rgba(0,0,0,.55); }
+.logo-card::before, .logo-card::after { content: ""; position: absolute; border-radius: 50%; border: 14px solid rgba(255,255,255,.12); pointer-events: none; }
+.logo-card::before { width: 130px; height: 130px; right: -40px; top: -50px; animation: spin 18s linear infinite; }
+.logo-card::after { width: 90px; height: 90px; left: -35px; bottom: -40px; border-width: 10px; }
+.logo-card strong { font-family: var(--serif); font-size: 2.6rem; font-weight: 500; line-height: 1; display: block; }
+.logo-card h3 { font-size: 1.3rem; font-weight: 700; margin: 4px 0 4px; letter-spacing: .01em; }
+.logo-card p { font-size: .92rem; opacity: .9; }
+@keyframes cardShift { from { background-position: 0% 50%; } to { background-position: 100% 50%; } }
+
+.logo-viewport { overflow: hidden; padding: 14px 0 8px;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
+          mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent); }
+.logo-track { display: flex; gap: 34px; width: max-content; animation: logoScroll var(--dur, 32s) linear infinite; }
+.logo-track.reverse { animation-direction: reverse; }
+.logo-viewport:hover .logo-track { animation-play-state: paused; }
+@keyframes logoScroll { from { transform: translateX(0); } to { transform: translateX(calc(-50% - 17px)); } }
+.logo-item { display: flex; flex-direction: column; align-items: center; gap: 12px; flex: none; width: 128px; }
+.logo-bubble { width: 118px; height: 118px; border-radius: 50%; background: #fff; display: grid; place-items: center; padding: 22px; position: relative;
+  box-shadow: 0 14px 30px -14px rgba(60,20,30,.35), inset 0 0 0 1px rgba(0,0,0,.04); transition: transform .5s var(--ease), box-shadow .5s var(--ease); }
+.logo-bubble::before { content: ""; position: absolute; inset: -4px; border-radius: 50%; padding: 3px;
+  background: conic-gradient(from 0deg, var(--red), #f0c3cb, #fff, #f0c3cb, var(--red));
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask-composite: exclude; opacity: .55; transition: opacity .4s; }
+.logo-bubble img { max-width: 100%; max-height: 100%; object-fit: contain; filter: saturate(.95); transition: transform .5s var(--ease); }
+.logo-item:hover .logo-bubble { transform: translateY(-8px) scale(1.06); box-shadow: 0 22px 40px -16px rgba(163,36,59,.45); }
+.logo-item:hover .logo-bubble::before { opacity: 1; animation: spin 3s linear infinite; }
+.logo-name { font-size: .88rem; font-weight: 600; color: var(--ink); text-align: center; line-height: 1.25; }
+
+@media (max-width: 900px) {
+  .logo-slider { grid-template-columns: 1fr; gap: 14px; }
+  .logo-card { padding: 22px 20px; border-radius: 14px; }
+  .logo-card strong { font-size: 2.1rem; }
+}
+@media (max-width: 600px) {
+  .logo-item { width: 100px; }
+  .logo-bubble { width: 92px; height: 92px; padding: 16px; }
+  .logo-track { gap: 20px; }
+  @keyframes logoScroll { from { transform: translateX(0); } to { transform: translateX(calc(-50% - 10px)); } }
+  .logo-name { font-size: .78rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .logo-viewport { overflow-x: auto; }
+  .logo-track { animation: none !important; }
+}
+.logo-bubble { padding: 15px; }
+.logo-bubble.wide img { max-height: 46%; }
+@media (max-width: 600px) { .logo-bubble { padding: 11px; } }
