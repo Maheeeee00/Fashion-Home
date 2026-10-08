@@ -45,12 +45,32 @@
     backdrop.className = 'nav-backdrop';
     document.body.appendChild(backdrop);
 
+    // Freeze the page behind the menu (works on iPhone, Android and desktop),
+    // so swiping inside the menu scrolls the menu, not the website.
+    let lockedY = 0;
+    const lockPage = () => {
+      lockedY = window.scrollY || window.pageYOffset || 0;
+      document.documentElement.classList.add('menu-lock');
+      body.style.top = `-${lockedY}px`;
+    };
+    const unlockPage = () => {
+      document.documentElement.classList.remove('menu-lock');
+      body.style.top = '';
+      const html = document.documentElement;
+      const prev = html.style.scrollBehavior;
+      html.style.scrollBehavior = 'auto';   // jump back instantly, no smooth scroll
+      window.scrollTo(0, lockedY);
+      html.style.scrollBehavior = prev;
+    };
+
     const setMenu = open => {
+      if (open === nav.classList.contains('open')) return;
       burger.classList.toggle('active', open);
       nav.classList.toggle('open', open);
       body.classList.toggle('menu-open', open);
       burger.setAttribute('aria-expanded', open);
       burger.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+      if (open) { lockPage(); nav.scrollTop = 0; } else { unlockPage(); }
     };
     burger.addEventListener('click', () => setMenu(!nav.classList.contains('open')));
     backdrop.addEventListener('click', () => setMenu(false));
@@ -66,7 +86,14 @@
           const li = link.parentElement;
           const wasOpen = li.classList.contains('open');
           $$('.has-dropdown.open').forEach(d => d.classList.remove('open'));
-          if (!wasOpen) li.classList.add('open');
+          if (!wasOpen) {
+            li.classList.add('open');
+            // bring the opened list into view inside the menu
+            setTimeout(() => {
+              const top = li.offsetTop - 80;
+              if (top > nav.scrollTop) nav.scrollTo({ top, behavior: 'smooth' });
+            }, 250);
+          }
         }
       });
     });

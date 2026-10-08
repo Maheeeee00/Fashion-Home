@@ -763,3 +763,19 @@ body.menu-open { overflow: hidden; }
   .card-wide .card-body { padding: 34px 38px; }
 }
 .logo-bubble img[src*="aldi"], .logo-bubble img[src*="sleep-country"] { max-height: 72%; }
+
+/* ===== Mobile menu: scroll the menu, never the page behind it ===== */
+html.menu-lock, html.menu-lock body { overflow: hidden !important; }
+html.menu-lock body { position: fixed; left: 0; right: 0; width: 100%; }
+@media (max-width: 900px) {
+  .nav {
+    height: 100vh; height: 100dvh; max-height: 100dvh;
+    overflow-y: auto; overflow-x: hidden;
+    overscroll-behavior: contain;            /* stop scroll "chaining" to the page */
+    -webkit-overflow-scrolling: touch;       /* smooth momentum scroll on iPhone */
+    touch-action: pan-y;
+    padding-bottom: calc(40px + env(safe-area-inset-bottom, 0px));
+  }
+  .has-dropdown.open .dropdown { max-height: 1200px; }   /* show every item, incl. Curtains */
+  .nav-backdrop { touch-action: none; }
+}
