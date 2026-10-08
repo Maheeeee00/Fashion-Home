@@ -110,7 +110,7 @@ body.loaded .header { animation: slideDown .9s var(--ease) both; }
 
 /* Hero */
 .hero { position: relative; min-height: 100vh; display: flex; align-items: center; overflow: hidden; color: #fff; padding: 140px 0 100px; }
-.hero-bg { position: absolute; inset: 0; background: url("https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=1800&q=80") center/cover, linear-gradient(135deg, #8a7b6e, #3a2a28); animation: kenburns 22s ease-in-out infinite alternate; }
+.hero-bg { position: absolute; inset: 0; background: url("../images/hero-bedding.jpg") center 40% / cover, linear-gradient(135deg, #4a4a52, #2a2a2e); animation: kenburns 22s ease-in-out infinite alternate; }
 .hero-overlay { position: absolute; inset: 0; background: linear-gradient(100deg, rgba(30, 14, 18, .85) 0%, rgba(60, 20, 30, .55) 50%, rgba(0,0,0,.15) 100%); }
 @keyframes kenburns { from { transform: scale(1); } to { transform: scale(1.15) translate(-2%, -1%); } }
 .shape { position: absolute; border-radius: 50%; filter: blur(2px); opacity: .5; pointer-events: none; }
