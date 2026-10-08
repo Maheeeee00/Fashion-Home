@@ -42,7 +42,7 @@ It takes about 10 minutes. You only need a Google (Gmail) account.
      SCRIPT_URL: 'https://script.google.com/macros/s/AKfy....../exec'
    };
    ```
-2. Upload the changed `js/config.js` to GitHub (**Add file → Upload files → Commit changes**). Vercel updates the site by itself.
+2. Save the file and publish it with the rest of the website.
 
 To test, open your live site, send a message from **Contact Us**, and check the **Enquiries** tab and your email.
 
