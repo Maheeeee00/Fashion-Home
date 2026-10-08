@@ -723,3 +723,43 @@ body.menu-open { overflow: hidden; }
 .map-link svg { width: 16px; height: 16px; fill: currentColor; }
 .map-link:hover { text-decoration: underline; }
 .office .map-link { display: flex !important; }
+
+/* ===== Taller photo boxes so portrait product photos show in full (no blur, no heavy crop) ===== */
+.card-img { height: auto; aspect-ratio: 4 / 5; }
+.card-lg .card-img { aspect-ratio: auto; min-height: 0; flex: 1; }
+.card-wide .card-img { aspect-ratio: auto; min-height: 520px; }
+.card-img, .a-card-img, .intro-media .img { background-position: center 40% !important; }
+
+.apparel-grid { grid-template-columns: repeat(5, 1fr); gap: 18px; }
+.a-card, .a-card:nth-child(4), .a-card:nth-child(5) { grid-column: span 1; height: auto; aspect-ratio: 9 / 16; min-height: 420px; }
+.a-card-info { padding: 22px; }
+.a-card h3 { font-size: 1.6rem; }
+.a-arrow { right: 20px; bottom: 24px; width: 40px; height: 40px; }
+
+.intro-grid { grid-template-columns: .8fr 1.2fr; }
+.intro-media { height: auto; aspect-ratio: 4 / 5; max-height: 640px; }
+
+@media (max-width: 1024px) {
+  .card-img { aspect-ratio: 4 / 5; height: auto; }
+  .card-lg .card-img { aspect-ratio: 4 / 5; flex: none; }
+  .apparel-grid { grid-template-columns: repeat(6, 1fr); }
+  .a-card, .a-card:nth-child(4), .a-card:nth-child(5) { grid-column: span 2; aspect-ratio: 3 / 4; min-height: 0; }
+  .a-card:nth-child(4), .a-card:nth-child(5) { grid-column: span 3; }
+}
+@media (max-width: 900px) {
+  .intro-grid { grid-template-columns: 1fr; }
+  .intro-media { aspect-ratio: 4 / 5; height: auto; max-width: 440px; width: 100%; margin: 0 auto; }
+}
+@media (max-width: 600px) {
+  .card-img, .card-lg .card-img { height: auto; aspect-ratio: 4 / 5; }
+  .card-wide .card-img { min-height: 0; aspect-ratio: 4 / 5; }
+  .apparel-grid { grid-template-columns: 1fr; }
+  .a-card, .a-card:nth-child(4), .a-card:nth-child(5) { grid-column: span 1; height: auto; aspect-ratio: 4 / 5; }
+  .intro-media { margin-right: 14px; width: auto; }
+}
+@media (min-width: 1025px) {
+  .textile-grid .card-wide { grid-column: span 2; }
+  .card-wide .card-img { min-height: 0; flex: 1; aspect-ratio: auto; }
+  .card-wide .card-body { padding: 34px 38px; }
+}
+.logo-bubble img[src*="aldi"], .logo-bubble img[src*="sleep-country"] { max-height: 72%; }

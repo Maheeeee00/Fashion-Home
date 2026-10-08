@@ -416,7 +416,7 @@ const SEED_PRODUCTS = [
   ["blankets", "Baby Blanket", "Extra-soft and gentle on skin.", "Baby, OEKO-TEX", "", "", "Yes", 6],
   ["towels", "Bath Towel", "Plush 600 GSM terry for everyday luxury.", "600 GSM, Ring-spun", "", "New", "Yes", 1],
   ["towels", "Hand Towel", "Quick-drying and soft for daily use.", "Hand, Dobby border", "", "Best Seller", "Yes", 2],
-  ["towels", "Turkish Peshtemal", "Light, flat-woven and quick drying.", "Turkish, Beach", "", "", "Yes", 3],
+  ["towels", "Beach Towels", "Oversized cabana-stripe, printed and Turkish peshtemal beach towels — soft, absorbent and quick drying.", "Beach, Cabana stripe, Oversize", "", "", "Yes", 3],
   ["towels", "Waffle Bath Towel", "Lightweight texture that dries fast.", "Waffle", "", "", "Yes", 4],
   ["towels", "Hotel Collection", "Durable white towels for hospitality.", "Hotel, Bulk", "", "", "Yes", 5],
   ["towels", "Bath Sheet", "Extra-large wrap-around size.", "Oversize, 700 GSM", "", "", "Yes", 6],
